@@ -1,0 +1,53 @@
+http://www.prometec.net/arduino-wifi/
+
+
+Activarlo:
+
+AT
+
+Listar Redes:
+
+AT+CWLAP
+
+Conectarse:
+
+AT+CWJAP="Fibertel WiFi812","0142697146"
+
+Para ver la IP:
+
+AT+CIFSR
+
+Habilita multiples conexiones:
+
+AT+CIPMUX=1
+
+Levanta Webserver en puerto 80 // Parece que no funciona
+
+AT+CIPSERVER=1,80
+
+Para saber la velocidad a la que trabaja el modulo:
+
+AT+CIOBAUD=?
+
+Para saber la velocidad actual:
+
+AT+CIOBAUD?
+
+Para cambiar la velocidad:
+
+AT+CIOBAUD=115200
+
+Para chequear la velocidad de timeout
+
+AT+CIPSTO?
+
+Para setear la velocidad de timeout
+
+AT+CIPSTO=3
+
+Para desconectarte del wifi
+AT+CWQAP
+
+Hoja de datos:
+http://www.pridopia.co.uk/pi-doc/ESP8266ATCommandsSet.pdf
+
