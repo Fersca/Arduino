@@ -35,6 +35,7 @@ void setup() {
   pinMode(led6 ,OUTPUT);
   
   Serial.begin(9600);
+
 }
  
 void loop() 
@@ -47,7 +48,7 @@ void loop()
     
       chequeaBoton();
       
-      activaBomba(buttonState);    
+      activaBomba();    
   }
  
   delay(500);   
@@ -87,13 +88,13 @@ void chequeaBoton(){
 
    //Si está prendido cambia de estado
    if (value==HIGH){
+    
       //Si estaba high lo pasa a low y sino, lo pasa a high
       if (buttonState==HIGH){
           buttonState=LOW;
           switchState=LOW;
           Serial.println("Apaga Motor por Switch");
-      } else {
-        
+      } else {     
           buttonState=HIGH;
           switchState=HIGH;
           Serial.println("Prende Motor por Switch");
@@ -115,6 +116,8 @@ bool chequeaAgua(){
       digitalWrite(led4, LOW);
       digitalWrite(led5, LOW);
       digitalWrite(led6, LOW);           
+      //apaga el motor por las dudas
+      digitalWrite(relayPin, LOW);
       return false;
    } else {
       digitalWrite(ledWaterPin, LOW);    
@@ -122,7 +125,8 @@ bool chequeaAgua(){
    }
 }
 
-void activaBomba(bool buttonState){
+void activaBomba(){
+    
    if (buttonState == HIGH)
    {
       digitalWrite(relayPin, HIGH);
