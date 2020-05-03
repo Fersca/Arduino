@@ -21,7 +21,7 @@ String linea;
 
 void setup()
   {  
-    
+    //pinMode(LED_BUILTIN, OUTPUT);
     Serial.begin(19200);  //115200
     BT1.begin(19200);     //115200
 
@@ -50,6 +50,13 @@ void setup()
 }
 
 void loop() {  
+
+  /*
+  digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
+  delay(100);                       // wait for a second
+  digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
+  delay(100); 
+  */
   if (Serial.available()){  
     char c = Serial.read();
     BT1.print(c);
